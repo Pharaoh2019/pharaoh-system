@@ -13,23 +13,29 @@ client.on('message', msg => {
 
 client.login(process.env.BOT_TOKEN);
 
-
-client.on('message', function(msg) {
-    const prefix = '%'
-    if(msg.content.startsWith (prefix  + 'server')) {
-      let embed = new Discord.RichEmbed()
-      .setColor('RANDOM')
-      .setThumbnail(msg.guild.iconURL)
-      .setTitle(`Showing Details Of  **${msg.guild.name}*`)
-      .addField('🌐** نوع السيرفر**',`[** __${msg.guild.region}__ **]`,true)
-      .addField('🏅** __الرتب__**',`[** __${msg.guild.roles.size}__ **]`,true)
-      .addField('🔴**__ عدد الاعضاء__**',`[** __${msg.guild.memberCount}__ **]`,true)
-      .addField('🔵**__ عدد الاعضاء الاونلاين__**',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
-      .addField('📝**__ الرومات الكتابية__**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
-      .addField('🎤**__ رومات الصوت__**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
-      .addField('👑**__ الأونـر__**',`**${msg.guild.owner}**`,true)
-      .addField('🆔**__ ايدي السيرفر__**',`**${msg.guild.id}**`,true)
-      .addField('📅**__ تم عمل السيرفر في__**',msg.guild.createdAt.toLocaleString())
-      msg.channel.send({embed:embed});
+client.on('message', message => {
+     if (message.content === "%help") {
+message.channel.sendMessage("**اوامر البوت**" + `  **
+『League | League <3』 『League』
+true
+『مصمم البوت ℳ𝒜ℰ𝒮𝒯ℛ𝒪♕💎♕ ᵖʰᵃʳᵃᵒʰˢ#0447』
+true
+『%help^』:kissing_heart:『اذا تبي جميع الاوامر مع اوامر اضافية』:dizzy_face:
+true
+『%ping^^』:ghost:『اذا تريد معرفة سرعة نتك』:flushed:
+true
+『%id^^^』:open_mouth:『اذا تريد معرفة  ايدي』:thermometer_face:
+true
+『%added^^^』:open_mouth:『لمعرفة كام شخص قمت بدعوته』:thermometer_face:
+『%لوخيروك^^^』^^^』:open_mouth:『للالعاب』:thermometer_face:
+true
+『%pubg^^^』^^^』:open_mouth:『للالعاب』:thermometer_face:
+true
+『%image^^^』:open_mouth:『لمعرفة صورة السيرفر』:thermometer_face:
+『:%server:』『لمعرفة معلومات سيرفر  』『:wink:』
+true
+『:money_mouth:』『قريبا سوف نضيف المزيد و المزيد من الاوامر 』『:wink:』
+true
+**`);
     }
-  });
+});
